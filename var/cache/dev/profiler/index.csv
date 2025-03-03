@@ -1,0 +1,15 @@
+9e7b2c,127.0.0.1,GET,http://127.0.0.1:8000/,1741002827,,404,request
+7edd3a,127.0.0.1,GET,http://127.0.0.1:8000/,1741002858,,404,request
+42be3e,127.0.0.1,GET,http://127.0.0.1:8000/,1741002883,,404,request
+749d9b,127.0.0.1,GET,http://127.0.0.1:8000/,1741002883,,404,request
+172636,127.0.0.1,GET,http://127.0.0.1:8000/,1741005552,,404,request
+9609f9,127.0.0.1,GET,http://127.0.0.1:8000/user,1741005557,,200,request
+d4a652,127.0.0.1,GET,http://127.0.0.1:8000/,1741006723,,404,request
+52f483,127.0.0.1,GET,http://localhost:8000/,1741006731,,404,request
+e2a55d,127.0.0.1,GET,http://localhost:8000/admin/import-csv,1741006750,,302,request
+d27ed8,127.0.0.1,GET,http://localhost:8000/login,1741006750,,200,request
+f098a8,127.0.0.1,GET,http://localhost:8000/register,1741006814,,200,request
+ce6234,127.0.0.1,GET,http://localhost:8000/user/new,1741006862,,200,request
+a8b5db,127.0.0.1,GET,http://localhost:8000/user/new,1741006899,cacd6f,500,request
+cacd6f,127.0.0.1,POST,http://localhost:8000/user/new,1741006899,,500,request
+f81640,127.0.0.1,GET,http://localhost:8000/user/new,1741006969,,200,request

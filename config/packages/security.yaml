@@ -1,0 +1,49 @@
+security:
+    # Gestion du hachage des mots de passe
+    password_hashers:
+        Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface: auto
+
+    # Fournisseurs d'utilisateurs
+    providers:
+        app_user_provider:  # Remplace le fournisseur en mémoire par un fournisseur basé sur la base de données
+            entity:
+                class: App\Entity\User
+                property: email  # Utilise l'email comme identifiant principal
+
+    # Firewalls (pare-feux)
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+
+        main:
+            lazy: true
+            provider: app_user_provider
+            stateless: true  # Désactive les sessions pour un système basé sur des tokens
+            logout:
+                path: app_logout  # Route pour déconnexion (si nécessaire)
+                invalidate_session: false
+            custom_authenticator: App\Security\TestcisadauthAuthenticator
+
+            remember_me:
+                secret: '%kernel.secret%'
+                lifetime: 604800
+                path: /
+                # by default, the feature is enabled by checking a checkbox in the
+                # login form, uncomment the following line to always enable it.
+                #always_remember_me: true
+
+    # Contrôle d'accès (Access Control)
+    access_control:
+        - { path: ^/api/secured, roles: ROLE_USER }  # Routes sécurisées accessibles uniquement aux utilisateurs authentifiés
+        - { path: ^/admin, roles: ROLE_ADMIN }       # Routes réservées aux administrateurs
+        - { path: ^/admin/import-csv, roles: ROLE_ADMIN }
+
+when@test:
+    security:
+        password_hashers:
+            Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface:
+                algorithm: auto
+                cost: 4  # Valeurs minimales pour les tests
+                time_cost: 3
+                memory_cost: 10
