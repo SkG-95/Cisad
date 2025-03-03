@@ -2,10 +2,9 @@
 
 namespace App\Entity;
 
-use App\Repository\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: UserRepository::class)]
+#[ORM\Entity]
 class User
 {
     #[ORM\Id]
@@ -22,23 +21,12 @@ class User
     #[ORM\Column(length: 255)]
     private ?string $password = null;
 
-    #[ORM\Column]
+    #[ORM\Column(type: 'json')]
     private array $roles = [];
-
-    // Relation OneToOne avec Infos
-    #[ORM\OneToOne(mappedBy: 'user', targetEntity: Infos::class, cascade: ['persist', 'remove'])]
-    private ?Infos $infos = null;
 
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function setId(int $id): static
-    {
-        $this->id = $id;
-
-        return $this;
     }
 
     public function getUsername(): ?string
@@ -46,7 +34,7 @@ class User
         return $this->username;
     }
 
-    public function setUsername(string $username): static
+    public function setUsername(string $username): self
     {
         $this->username = $username;
 
@@ -58,7 +46,7 @@ class User
         return $this->email;
     }
 
-    public function setEmail(string $email): static
+    public function setEmail(string $email): self
     {
         $this->email = $email;
 
@@ -70,7 +58,7 @@ class User
         return $this->password;
     }
 
-    public function setPassword(string $password): static
+    public function setPassword(string $password): self
     {
         $this->password = $password;
 
@@ -79,31 +67,16 @@ class User
 
     public function getRoles(): array
     {
-        return $this->roles;
-    }
-
-    public function setRoles(array $roles): static
-    {
-        $this->roles = $roles;
-
-        return $this;
-    }
-
-    // Getter et setter pour la relation OneToOne avec Infos
-
-    public function getInfos(): ?Infos
-    {
-        return $this->infos;
-    }
-
-    public function setInfos(?Infos $infos): static
-    {
-        // Synchronise la relation bidirectionnelle
-        if ($infos !== null && $infos->getUser() !== $this) {
-            $infos->setUser($this);
+        if (empty($this->roles)) {
+            return ['ROLE_USER'];
         }
 
-        $this->infos = $infos;
+        return array_unique($this->roles);
+    }
+
+    public function setRoles(array $roles): self
+    {
+        $this->roles = array_unique($roles);
 
         return $this;
     }

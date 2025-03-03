@@ -1,0 +1,28 @@
+cat > .gitignore <<EOL
+# Ignore Composer dependencies
+/vendor/
+
+# Ignore Symfony cache and logs
+/var/
+
+# Ignore environment files
+.env
+.env.local
+.env.*.local
+
+# Ignore JWT keys
+/config/jwt/
+
+# Ignore IDE files
+/.idea/
+/*.iml
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore Node.js dependencies
+/node_modules/
+/public/build/
+EOL
+
