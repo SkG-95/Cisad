@@ -73,7 +73,7 @@ class __TwigTemplate_686c2a74524cef45f3b3c196f9419abd extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
 
-        yield "New User";
+        yield "Créer un nouvel utilisateur";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
 
@@ -97,17 +97,29 @@ class __TwigTemplate_686c2a74524cef45f3b3c196f9419abd extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 6
-        yield "    <h1>Create new User</h1>
-
-    ";
-        // line 8
+        yield "<div class=\"container mt-5\">
+    <div class=\"row justify-content-center\">
+        <div class=\"col-md-8\">
+            <div class=\"card shadow\">
+                <div class=\"card-header bg-primary text-white\">
+                    <h3 class=\"card-title mb-0\">Créer un nouvel utilisateur</h3>
+                </div>
+                <div class=\"card-body\">
+                    ";
+        // line 14
         yield Twig\Extension\CoreExtension::include($this->env, $context, "user/_form.html.twig");
         yield "
-
-    <a href=\"";
-        // line 10
+                </div>
+                <div class=\"card-footer text-center\">
+                    <a href=\"";
+        // line 17
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_user_index");
-        yield "\">back to list</a>
+        yield "\" class=\"btn btn-secondary\">Retour à la liste</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -139,22 +151,33 @@ class __TwigTemplate_686c2a74524cef45f3b3c196f9419abd extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  109 => 10,  104 => 8,  100 => 6,  87 => 5,  64 => 3,  41 => 1,);
+        return array (  116 => 17,  110 => 14,  100 => 6,  87 => 5,  64 => 3,  41 => 1,);
     }
 
     public function getSourceContext(): Source
     {
         return new Source("{% extends 'base.html.twig' %}
 
-{% block title %}New User{% endblock %}
+{% block title %}Créer un nouvel utilisateur{% endblock %}
 
 {% block body %}
-    <h1>Create new User</h1>
-
-    {{ include('user/_form.html.twig') }}
-
-    <a href=\"{{ path('app_user_index') }}\">back to list</a>
-{% endblock %}
-", "user/new.html.twig", "/Users/ryanchaibat/Desktop/testtechryan/TestTechRyan/templates/user/new.html.twig");
+<div class=\"container mt-5\">
+    <div class=\"row justify-content-center\">
+        <div class=\"col-md-8\">
+            <div class=\"card shadow\">
+                <div class=\"card-header bg-primary text-white\">
+                    <h3 class=\"card-title mb-0\">Créer un nouvel utilisateur</h3>
+                </div>
+                <div class=\"card-body\">
+                    {{ include('user/_form.html.twig') }}
+                </div>
+                <div class=\"card-footer text-center\">
+                    <a href=\"{{ path('app_user_index') }}\" class=\"btn btn-secondary\">Retour à la liste</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}", "user/new.html.twig", "/Users/ryanchaibat/Desktop/testtechryan/TestTechRyan/templates/user/new.html.twig");
     }
 }

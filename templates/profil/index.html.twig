@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Profil de {{ user.username }}{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow">
+                <div class="card-header bg-primary text-white">
+                    <h3 class="card-title mb-0">Profil de {{ user.username }}</h3>
+                </div>
+                <div class="card-body">
+                    <table class="table table-bordered">
+                        <tbody>
+                            <tr>
+                                <th>ID</th>
+                                <td>{{ user.id }}</td>
+                            </tr>
+                            <tr>
+                                <th>Nom d'utilisateur</th>
+                                <td>{{ user.username }}</td>
+                            </tr>
+                            <tr>
+                                <th>Email</th>
+                                <td>{{ user.email }}</td>
+                            </tr>
+                            <tr>
+                                <th>Rôles</th>
+                                <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
+                            </tr>
+
+                            {# Si l'utilisateur a des infos associées, affichez-les #}
+                            {% if user.infos %}
+                                <tr>
+                                    <th>Rang</th>
+                                    <td>{{ user.infos.rank }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Victoires</th>
+                                    <td>{{ user.infos.victoire }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Défaites</th>
+                                    <td>{{ user.infos.defaite }}</td>
+                                </tr>
+                            {% else %}
+                                {# Si aucune info n'est associée, affichez un message ou laissez vide #}
+                                <tr>
+                                    <th colspan="2" class="text-center">Aucune information disponible</th>
+                                </tr>
+                            {% endif %}
+                        </tbody>
+                    </table>
+                </div>
+                <div class="card-footer text-center">
+                    <a href="{{ path('app_home') }}" class="btn btn-secondary">Retour à l'accueil</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

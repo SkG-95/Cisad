@@ -3,6 +3,10 @@ security:
     password_hashers:
         Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface: auto
 
+    role_hierarchy:
+        ROLE_ADMIN: [ROLE_USER]
+        ROLE_SUPER_ADMIN: [ROLE_ADMIN]
+
     # Fournisseurs d'utilisateurs
     providers:
         app_user_provider:  # Remplace le fournisseur en mémoire par un fournisseur basé sur la base de données
@@ -19,11 +23,12 @@ security:
         main:
             lazy: true
             provider: app_user_provider
-            stateless: true  # Désactive les sessions pour un système basé sur des tokens
+            stateless: false  # Désactive les sessions pour un système basé sur des tokens
+            custom_authenticator: App\Security\TestcisadauthAuthenticator
+
             logout:
                 path: app_logout  # Route pour déconnexion (si nécessaire)
                 invalidate_session: false
-            custom_authenticator: App\Security\TestcisadauthAuthenticator
 
             remember_me:
                 secret: '%kernel.secret%'
@@ -32,12 +37,10 @@ security:
                 # by default, the feature is enabled by checking a checkbox in the
                 # login form, uncomment the following line to always enable it.
                 #always_remember_me: true
-
     # Contrôle d'accès (Access Control)
     access_control:
-        - { path: ^/api/secured, roles: ROLE_USER }  # Routes sécurisées accessibles uniquement aux utilisateurs authentifiés
-        - { path: ^/admin, roles: ROLE_ADMIN }       # Routes réservées aux administrateurs
-        - { path: ^/admin/import-csv, roles: ROLE_ADMIN }
+        - { path: ^/admin, roles: ROLE_ADMIN }
+        - { path: ^/user, roles: ROLE_USER }
 
 when@test:
     security:

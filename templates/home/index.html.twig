@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ranked Play - Mon Site{% endblock %}
+
+{% block body %}
+    <!-- Hero Section -->
+    <div class="bg-dark text-white text-center py-5">
+        <div class="container">
+            <h1 class="display-4 fw-bold">Ranked Play</h1>
+            <p class="lead">Tracker vos rangs dans tous vos jeux préférés</p>
+            <p class="lead mb-4">League of Legends, Valorant, Marvel Rivals, Overwatch, et bien plus encore !</p>
+            <a href="{{ path('app_register') }}" class="btn btn-lg" style="background-color: #FBC02D; color: #000; border: none;">Commencez maintenant</a>
+        </div>
+    </div>
+
+    <!-- Liste de jeux -->
+    <div class="container my-5 ">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold">Suivez vos performances sur</h2>
+        </div>
+        <div class="row g-4">
+            <!-- League of Legends -->
+            <div class="col-md-3 text-center">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <img src="{{ asset('images/lol-logo.png') }}" alt="League of Legends" class="img-fluid mb-3" style="max-height: 100px;">
+                        <h4 class="card-title">League of Legends</h4>
+                    </div>
+                </div>
+            </div>
+            <!-- Valorant -->
+            <div class="col-md-3 text-center">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <img src="images/Valorant_logo.png" alt="Valorant" class="img-fluid mb-3" style="max-height: 100px;">
+                        <h4 class="card-title">Valorant</h4>
+                    </div>
+                </div>
+            </div>
+            <!-- Marvel Rivals -->
+            <div class="col-md-3 text-center">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <img src="{{ asset('images/Mrival.png') }}" alt="Marvel Rivals" class="img-fluid mb-3" style="max-height: 100px;">
+                        <h4 class="card-title">Marvel Rivals</h4>
+                    </div>
+                </div>
+            </div>
+            <!-- Overwatch -->
+            <div class="col-md-3 text-center">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <img src="images/Overwatch_logo.png" alt="Overwatch" class="img-fluid mb-3" style="max-height: 100px;">
+                        <h4 class="card-title">Overwatch</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

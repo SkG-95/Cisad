@@ -13,8 +13,8 @@ class Infos
     #[ORM\Column(type: 'integer')]
     private $id;
 
-    #[ORM\Column(type: 'string', length: 255)]
-    private $rank;
+    #[ORM\Column(name: '`rank`', type: 'string', length: 255)]
+    private $rank;    
 
     #[ORM\Column(type: 'integer')]
     private $victoire;
@@ -82,4 +82,3 @@ class Infos
         return $this;
     }
 }
-

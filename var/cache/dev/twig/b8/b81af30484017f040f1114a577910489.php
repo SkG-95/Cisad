@@ -73,7 +73,7 @@ class __TwigTemplate_5cda8c6a08601f906f5d2ad2eea0f110 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
 
-        yield "User index";
+        yield "Gestion des Utilisateurs";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
 
@@ -97,81 +97,136 @@ class __TwigTemplate_5cda8c6a08601f906f5d2ad2eea0f110 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 6
-        yield "    <h1>User index</h1>
+        yield "<div class=\"container mt-5\">
+    <h1 class=\"text-center mb-4\">Gestion des Utilisateurs</h1>
 
-    <table class=\"table\">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Username</th>
-                <th>Email</th>
-                <th>Password</th>
-                <th>Roles</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        ";
-        // line 20
+    <div class=\"card shadow\">
+        <div class=\"card-header bg-primary text-white\">
+            <h3 class=\"card-title mb-0\">Liste des Utilisateurs</h3>
+        </div>
+        <div class=\"card-body\">
+            <table id=\"userTable\" class=\"table table-striped table-bordered\">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nom d'utilisateur</th>
+                        <th>Email</th>
+                        <th>Rôles</th>
+                        <th>Rang</th>
+                        <th>Victoires</th>
+                        <th>Défaites</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                ";
+        // line 28
         $context['_parent'] = $context;
-        $context['_seq'] = CoreExtension::ensureTraversable((isset($context["users"]) || array_key_exists("users", $context) ? $context["users"] : (function () { throw new RuntimeError('Variable "users" does not exist.', 20, $this->source); })()));
+        $context['_seq'] = CoreExtension::ensureTraversable((isset($context["users"]) || array_key_exists("users", $context) ? $context["users"] : (function () { throw new RuntimeError('Variable "users" does not exist.', 28, $this->source); })()));
         $context['_iterated'] = false;
         foreach ($context['_seq'] as $context["_key"] => $context["user"]) {
-            // line 21
-            yield "            <tr>
-                <td>";
-            // line 22
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["user"], "id", [], "any", false, false, false, 22), "html", null, true);
-            yield "</td>
-                <td>";
-            // line 23
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["user"], "username", [], "any", false, false, false, 23), "html", null, true);
-            yield "</td>
-                <td>";
-            // line 24
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["user"], "email", [], "any", false, false, false, 24), "html", null, true);
-            yield "</td>
-                <td>";
-            // line 25
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["user"], "password", [], "any", false, false, false, 25), "html", null, true);
-            yield "</td>
-                <td>";
-            // line 26
-            yield ((CoreExtension::getAttribute($this->env, $this->source, $context["user"], "roles", [], "any", false, false, false, 26)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(json_encode(CoreExtension::getAttribute($this->env, $this->source, $context["user"], "roles", [], "any", false, false, false, 26)), "html", null, true)) : (""));
-            yield "</td>
-                <td>
-                    <a href=\"";
-            // line 28
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_user_show", ["id" => CoreExtension::getAttribute($this->env, $this->source, $context["user"], "id", [], "any", false, false, false, 28)]), "html", null, true);
-            yield "\">show</a>
-                    <a href=\"";
             // line 29
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_user_edit", ["id" => CoreExtension::getAttribute($this->env, $this->source, $context["user"], "id", [], "any", false, false, false, 29)]), "html", null, true);
-            yield "\">edit</a>
-                </td>
-            </tr>
-        ";
+            yield "                    <tr>
+                        <td>";
+            // line 30
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["user"], "id", [], "any", false, false, false, 30), "html", null, true);
+            yield "</td>
+                        <td>";
+            // line 31
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["user"], "username", [], "any", false, false, false, 31), "html", null, true);
+            yield "</td>
+                        <td>";
+            // line 32
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, $context["user"], "email", [], "any", false, false, false, 32), "html", null, true);
+            yield "</td>
+                        <td>";
+            // line 33
+            yield ((CoreExtension::getAttribute($this->env, $this->source, $context["user"], "roles", [], "any", false, false, false, 33)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(json_encode(CoreExtension::getAttribute($this->env, $this->source, $context["user"], "roles", [], "any", false, false, false, 33)), "html", null, true)) : (""));
+            yield "</td>
+                        <td>";
+            // line 34
+            yield ((CoreExtension::getAttribute($this->env, $this->source, $context["user"], "infos", [], "any", false, false, false, 34)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["user"], "infos", [], "any", false, false, false, 34), "rank", [], "any", false, false, false, 34), "html", null, true)) : ("N/A"));
+            yield "</td> ";
+            // line 35
+            yield "                        <td>";
+            yield ((CoreExtension::getAttribute($this->env, $this->source, $context["user"], "infos", [], "any", false, false, false, 35)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["user"], "infos", [], "any", false, false, false, 35), "victoire", [], "any", false, false, false, 35), "html", null, true)) : (0));
+            yield "</td> ";
+            // line 36
+            yield "                        <td>";
+            yield ((CoreExtension::getAttribute($this->env, $this->source, $context["user"], "infos", [], "any", false, false, false, 36)) ? ($this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["user"], "infos", [], "any", false, false, false, 36), "defaite", [], "any", false, false, false, 36), "html", null, true)) : (0));
+            yield "</td> ";
+            // line 37
+            yield "                        <td>
+                            <a href=\"";
+            // line 38
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_user_show", ["id" => CoreExtension::getAttribute($this->env, $this->source, $context["user"], "id", [], "any", false, false, false, 38)]), "html", null, true);
+            yield "\" class=\"btn btn-sm btn-info\">Voir</a>
+                            <a href=\"";
+            // line 39
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_user_edit", ["id" => CoreExtension::getAttribute($this->env, $this->source, $context["user"], "id", [], "any", false, false, false, 39)]), "html", null, true);
+            yield "\" class=\"btn btn-sm btn-warning\">Modifier</a>
+
+                            ";
+            // line 41
+            if (CoreExtension::getAttribute($this->env, $this->source, $context["user"], "infos", [], "any", false, false, false, 41)) {
+                // line 42
+                yield "                                ";
+                // line 43
+                yield "                                <a href=\"";
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_infos_edit", ["id" => CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, $context["user"], "infos", [], "any", false, false, false, 43), "id", [], "any", false, false, false, 43)]), "html", null, true);
+                yield "\" class=\"btn btn-sm btn-primary\">Modifier Infos</a>
+                            ";
+            } else {
+                // line 45
+                yield "                                ";
+                // line 46
+                yield "                                <a href=\"";
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_infos_new", ["user_id" => CoreExtension::getAttribute($this->env, $this->source, $context["user"], "id", [], "any", false, false, false, 46)]), "html", null, true);
+                yield "\" class=\"btn btn-sm btn-success\">Ajouter Infos</a>
+                            ";
+            }
+            // line 48
+            yield "                        </td>
+                    </tr>
+                ";
             $context['_iterated'] = true;
         }
-        // line 32
+        // line 50
         if (!$context['_iterated']) {
-            // line 33
-            yield "            <tr>
-                <td colspan=\"6\">no records found</td>
-            </tr>
-        ";
+            // line 51
+            yield "                    <tr>
+                        <td colspan=\"8\" class=\"text-center\">Aucun utilisateur trouvé</td>
+                    </tr>
+                ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_key'], $context['user'], $context['_parent'], $context['_iterated']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 37
-        yield "        </tbody>
-    </table>
-
-    <a href=\"";
-        // line 40
+        // line 55
+        yield "                </tbody>
+            </table>
+        </div>
+        <div class=\"card-footer text-center\">
+            <a href=\"";
+        // line 59
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_user_new");
-        yield "\">Create new</a>
+        yield "\" class=\"btn btn-success\">Créer un nouvel utilisateur</a>
+        </div>
+    </div>
+</div>
+
+<script>
+    \$(document).ready(function() {
+        \$('#userTable').DataTable({
+            language: {
+                url: 'https://cdn.datatables.net/plug-ins/1.13.6/i18n/fr-FR.json' // Traduction en français
+            },
+            columnDefs: [
+                { orderable: false, targets: [7] } // Désactiver le tri sur la colonne \"Actions\"
+            ]
+        });
+    });
+</script>
 ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -203,51 +258,86 @@ class __TwigTemplate_5cda8c6a08601f906f5d2ad2eea0f110 extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  173 => 40,  168 => 37,  159 => 33,  157 => 32,  149 => 29,  145 => 28,  140 => 26,  136 => 25,  132 => 24,  128 => 23,  124 => 22,  121 => 21,  116 => 20,  100 => 6,  87 => 5,  64 => 3,  41 => 1,);
+        return array (  212 => 59,  206 => 55,  197 => 51,  195 => 50,  189 => 48,  183 => 46,  181 => 45,  175 => 43,  173 => 42,  171 => 41,  166 => 39,  162 => 38,  159 => 37,  155 => 36,  151 => 35,  148 => 34,  144 => 33,  140 => 32,  136 => 31,  132 => 30,  129 => 29,  124 => 28,  100 => 6,  87 => 5,  64 => 3,  41 => 1,);
     }
 
     public function getSourceContext(): Source
     {
         return new Source("{% extends 'base.html.twig' %}
 
-{% block title %}User index{% endblock %}
+{% block title %}Gestion des Utilisateurs{% endblock %}
 
 {% block body %}
-    <h1>User index</h1>
+<div class=\"container mt-5\">
+    <h1 class=\"text-center mb-4\">Gestion des Utilisateurs</h1>
 
-    <table class=\"table\">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Username</th>
-                <th>Email</th>
-                <th>Password</th>
-                <th>Roles</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for user in users %}
-            <tr>
-                <td>{{ user.id }}</td>
-                <td>{{ user.username }}</td>
-                <td>{{ user.email }}</td>
-                <td>{{ user.password }}</td>
-                <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
-                <td>
-                    <a href=\"{{ path('app_user_show', {'id': user.id}) }}\">show</a>
-                    <a href=\"{{ path('app_user_edit', {'id': user.id}) }}\">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan=\"6\">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+    <div class=\"card shadow\">
+        <div class=\"card-header bg-primary text-white\">
+            <h3 class=\"card-title mb-0\">Liste des Utilisateurs</h3>
+        </div>
+        <div class=\"card-body\">
+            <table id=\"userTable\" class=\"table table-striped table-bordered\">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nom d'utilisateur</th>
+                        <th>Email</th>
+                        <th>Rôles</th>
+                        <th>Rang</th>
+                        <th>Victoires</th>
+                        <th>Défaites</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for user in users %}
+                    <tr>
+                        <td>{{ user.id }}</td>
+                        <td>{{ user.username }}</td>
+                        <td>{{ user.email }}</td>
+                        <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
+                        <td>{{ user.infos ? user.infos.rank : 'N/A' }}</td> {# Affiche le rang ou \"N/A\" si aucune donnée n'existe #}
+                        <td>{{ user.infos ? user.infos.victoire : 0 }}</td> {# Affiche les victoires ou 0 par défaut #}
+                        <td>{{ user.infos ? user.infos.defaite : 0 }}</td> {# Affiche les défaites ou 0 par défaut #}
+                        <td>
+                            <a href=\"{{ path('app_user_show', {'id': user.id}) }}\" class=\"btn btn-sm btn-info\">Voir</a>
+                            <a href=\"{{ path('app_user_edit', {'id': user.id}) }}\" class=\"btn btn-sm btn-warning\">Modifier</a>
 
-    <a href=\"{{ path('app_user_new') }}\">Create new</a>
+                            {% if user.infos %}
+                                {# Si des infos existent, afficher un bouton pour les modifier #}
+                                <a href=\"{{ path('app_infos_edit', {'id': user.infos.id}) }}\" class=\"btn btn-sm btn-primary\">Modifier Infos</a>
+                            {% else %}
+                                {# Si aucune info n'existe, afficher un bouton pour en ajouter #}
+                                <a href=\"{{ path('app_infos_new', {'user_id': user.id}) }}\" class=\"btn btn-sm btn-success\">Ajouter Infos</a>
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan=\"8\" class=\"text-center\">Aucun utilisateur trouvé</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class=\"card-footer text-center\">
+            <a href=\"{{ path('app_user_new') }}\" class=\"btn btn-success\">Créer un nouvel utilisateur</a>
+        </div>
+    </div>
+</div>
+
+<script>
+    \$(document).ready(function() {
+        \$('#userTable').DataTable({
+            language: {
+                url: 'https://cdn.datatables.net/plug-ins/1.13.6/i18n/fr-FR.json' // Traduction en français
+            },
+            columnDefs: [
+                { orderable: false, targets: [7] } // Désactiver le tri sur la colonne \"Actions\"
+            ]
+        });
+    });
+</script>
 {% endblock %}
 ", "user/index.html.twig", "/Users/ryanchaibat/Desktop/testtechryan/TestTechRyan/templates/user/index.html.twig");
     }
